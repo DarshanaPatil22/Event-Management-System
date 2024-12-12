@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            margin-top: 80px;
+        }
+
+        p {
+            color: orangered;
+            font-size: 300%;
+        }
+
+        table {
+            color: black;
+            backdrop-filter: blur(10px);
+            width: 45%;
+            border-radius: 5px;
+            height: 45%;
+        }
+
+        input {
+            font-size: large;
+        }
+
+        td {
+            font-size: larger;
+        }
+
+        span {
+            color: red;
+        }
+
+        #btnsubmit,
+        #btnreset {
+            background-color: black;
+            color: white;
+            height: 35px;
+            width: 150px;
+            border-radius: 25px;
+            border-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body background="images/flowers.jpg" style="background-repeat: no-repeat; background-size: 100% 100%;">
+    <p align="center"><b>Registration form</b></p>
+
+    <form action="receipt.html" name="f" onsubmit="return validation()" method="post">
+        <table align="center" cellspacing="15" width="">
+            <tr>
+                <td style="font-size: 140%;"><u><b>Create your account</b></u></td>
+            </tr>
+
+            <tr>
+                <td>First Name:
+                    <td><input type="text" id="fname" placeholder="First Name" name="firstname">
+                        <br><span id="ffname"></span></td>
+            </tr>
+
+            <tr>
+                <td>Last Name:
+                    <td><input type="text" id="lname" placeholder="Last Name" name="lastname">
+                        <br><span id="llname"></span></td>
+            </tr>
+
+            <tr>
+                <td>Address:
+                    <td><input type="text" id="address" placeholder="Address" name="address">
+                        <br><span id="addresss"></span></td>
+            </tr>
+
+            <tr>
+                <td>Email address:
+                    <td><input type="email" id="email" placeholder="Email-address" name="gmail">
+                        <br><span id="emaill"></span></td>
+            </tr>
+
+            <tr>
+                <td>Mobile Number:
+                    <td><input type="text" id="mobilenum" placeholder="Mobile Number" name="mobile">
+                        <br><span id="mobilenumm"></span></td>
+            </tr>
+
+            
+
+            <tr>
+                <td>Password:
+                    <td><input type="password" id="pass" placeholder="Password" name="pass">
+                        <br><span id="passs"></span></td>
+            </tr>
+
+            <tr>
+                <td>Confirm password:
+                    <td><input type="password" id="conpass" placeholder="Confirm password" name="conpass">
+                        <br><span id="conpasss"></span></td>
+            </tr>
+
+            <tr>
+                <td>Select Event:
+                    <td>
+                        <select id="event" name="event">
+                            <option value="wedding">Wedding</option>
+                            <option value="meeting">Meeting</option>
+                            <option value="birthday">Birthday Party</option>
+                            <option value="gettogether">Get Together</option>
+                            <option value="engagement">Engagement</option>
+                            <option value="reception">Reception</option>
+                        </select>
+                        <br><span id="events"></span>
+                    </td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Date and Time:
+                    <td><input type="datetime-local" id="datetime" name="datetime">
+                        <br><span id="datetimes"></span></td>
+            </tr>
+
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="Submit" value="Submit" id="btnsubmit" name="btnsubmit">
+                    <input type="Reset" value="Reset" id="btnreset" name="btnreset">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script type="text/javascript">
+        function validation() {
+            var fname = document.f.fname.value;
+            var lname = document.f.lname.value;
+            var address = document.f.address.value;
+            var email = document.f.email.value;
+            var mobilenum = document.f.mobilenum.value;
+            var password = document.f.pass.value;
+            var conpass = document.f.conpass.value;
+            var datetime = document.f.datetime.value;
+            var event = document.f.event.value;
+
+            if (fname.length < 2 || !/^[A-Za-z]+$/.test(fname)) {
+                alert("First Name is required and should contain only letters!");
+                return false;
+            }
+
+            if (lname.length < 2 || !/^[A-Za-z]+$/.test(lname)) {
+                alert("Last Name is required and should contain only letters!");
+                return false;
+            }
+
+            if (address.length < 1) {
+                alert("Address is required!");
+                return false;
+            }
+
+            if (email == "" || !/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById('emaill').innerHTML = "*Email must be filled with a proper format*";
+                return false;
+            }
+
+            if (mobilenum.length !== 10 || !/^\d+$/.test(mobilenum)) {
+                alert("Mobile number must contain 10 digits and only numeric characters");
+                return false;
+            }
+
+            if (password.length < 8) {
+                alert("Password should contain at least 8 characters");
+                return false;
+            }
+
+            if (conpass !== password) {
+                alert("Confirm password should match the password");
+                return false;
+            }
+
+            
+            if (event == "") {
+                alert("Please select an event");
+                return false;
+            }
+
+            if (datetime == "") {
+                alert("Date and Time field is required!");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>

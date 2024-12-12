@@ -1,0 +1,191 @@
+<html>
+    <head>
+        <title>registeration form</title>
+            <style>
+                body
+                {
+                    margin-top: 80px;
+                }
+                p
+                {
+                    color: orangered;
+                    font-size: 300%;
+
+                }
+                table
+                {
+                    color: black;
+                    backdrop-filter: blur(10px);
+                    width: 40%;
+                    border-radius: 5px;
+                }
+                input
+                {
+                    font-size: large;
+                }
+                td
+                {
+                    font-size: larger;
+                }
+                span
+                {
+                    color: red;
+                }
+                #button
+                {
+                    background-color: black;
+                    color: white;
+                    height: 35px;
+                    width: 150px;
+                    border-radius: 25px;
+                    border-color: aliceblue;
+                }
+            </style>
+    </head>
+    
+    <body background="images/flowers.jpg" 
+    style="background-repeat: no-repeat; background-size: 100% 100%;">
+        <p align="center"><b>Registeration form</b></p>
+
+        <form name="f"  onsubmit="return validation()">
+        <table align="center" cellspacing="15" width="">
+            <tr>
+                <td style="font-size: 140%;"><u><b>Create your account</b></u></td>
+            </tr>
+
+            <tr>
+                <td>First Name:
+                    <td><input type="text" id="fname" placeholder="First Name">
+                        <br><span id="ffname"></span></td>
+                </tr>
+    
+                <tr>
+                    <td>Last Name:
+                    <td><input type="text" id="lname" placeholder="Last Name">
+                        <br><span id="llname"></span></td>
+                </tr>
+    
+                <tr>
+                    <td>Address:
+                    <td><input type="text" id="address" placeholder="Address">
+                        <br><span id="addresss"></span></td>
+                </tr>
+    
+                <tr>
+                    <td>Email address:
+                    <td><input type="email" id="email" placeholder="Email-address">
+                        <br><span id="emaill"></span></td>
+                </tr>
+    
+                <tr>
+                    <td>Mobile Number:
+                    <td><input type="text" id="mobilenum" placeholder="Mobile Number">
+                        <br><span id="mobilenumm"></span></td>
+                </tr>
+    
+                <tr>
+                    <td>Gender:
+                    <td>
+                    <input type="radio" name="g1">Male
+                    <input type="radio" name="g1">Female
+                    <br><span id="gender"></span></td>
+                </tr>
+    
+                <tr>
+                    <td>Password:
+                    <td><input type="password" id="pass" placeholder="Password">
+                        <br><span id="passs"></span></td>
+                </tr>
+    
+                <tr>
+                    <td>Confirm password:
+                    <td><input type="password" id="conpass" placeholder="Confirm password">
+                        <br><span id="conpasss"></span></td>
+                </tr>
+    
+                <tr>
+                    <td align="center" colspan="2">
+                        <input type="Submit" value="Submit" id="button">
+                        <input type="Reset" value="Reset" id="button">
+                    </td>
+                </tr>
+            </table>
+            </form>
+    
+            <!-- ... (your existing code) -->
+
+<!-- ... (your existing code) -->
+
+<script type="text/javascript">
+    function validation() {
+        var fname = document.f.fname.value;
+        var lname = document.f.lname.value;
+        var address = document.f.address.value;
+        var email = document.f.email.value;
+        var mobilenum = document.f.mobilenum.value;
+        var password = document.f.pass.value; // Updated ID
+        var conpass = document.f.conpass.value;
+
+        // Validate First Name
+        if (fname.length < 2 || !/^[A-Za-z]+$/.test(fname)) {
+            alert("First Name is required and should contain only letters!");
+            return false;
+        }
+
+        // Validate Last Name
+        if (lname.length < 2 || !/^[A-Za-z]+$/.test(lname)) {
+            alert("Last Name is required and should contain only letters!");
+            return false;
+        }
+
+        // Validate Address
+        if (address.length < 1) {
+            alert("Address is required!");
+            return false;
+        }
+
+        // Validate Email
+        if (email == "" || !/^\S+@\S+\.\S+$/.test(email)) {
+            document.getElementById('emaill').innerHTML = "*Email must be filled with a proper format*";
+            return false;
+        }
+
+        // Validate Mobile Number
+        if (mobilenum.length !== 10 || !/^\d+$/.test(mobilenum)) {
+            alert("Mobile number must contain 10 digits and only numeric characters");
+            return false;
+        }
+
+        // Validate Password
+        if (password.length < 8) {
+            alert("Password should contain at least 8 characters");
+            return false;
+        }
+
+        // Validate Confirm Password
+        if (conpass !== password) {
+            alert("Confirm password should match the password");
+            return false;
+        }
+
+        // Validate Gender (at least one should be selected)
+        var genderSelected = document.querySelector('input[name="g1"]:checked');
+        if (!genderSelected) {
+            alert("Please select a gender");
+            return false;
+        }
+
+        // All validations passed
+        return true;
+    }
+</script>
+
+<!-- ... (your existing code) -->
+
+
+<!-- ... (your existing code) -->
+
+        </div>
+        </body>
+    </html>
+                    …
